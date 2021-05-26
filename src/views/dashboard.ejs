@@ -1,0 +1,30 @@
+<%-include('./partials/_header')-%>
+
+        <main class="container">
+            <%-include('./partials/_sidebar')-%>
+            <section class="content">
+                <header class=header>
+                    <a href="/"><img src="/icons/time-management.svg" alt="App icons"></a>
+                    <span>Control De Incidencias - <%=title%></span>
+                </header>
+                <div id="app">
+                    <h2>{{message}}</h2>
+                    <div class="chart-content">
+                        <chart class="chart" :width="800" :height="300"></chart>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%-include('./partials/_bgEffect')-%>
+        <!-- Vuejs -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <!-- Vue Chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+        <!-- Axios -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+        <!-- Settings -->
+        <script type="text/javascript" src="/js/vueChart.js">
+
+        </script>
+<%-include('./partials/_footer')-%>

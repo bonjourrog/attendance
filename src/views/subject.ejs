@@ -1,0 +1,37 @@
+<%-include('./partials/_header')-%>
+
+        <main class="container">
+            <%-include('./partials/_sidebar')-%>
+            <section class="content">
+                <header class=header>
+                    <a href="/"><img src="/icons/time-management.svg" alt="App icons"></a>
+                    <span>Control De Incidencias - <%=title%></span>
+                </header>
+
+                <article class="subject-content">
+                    <%if(message.length > 0){%>
+                        <span style="position:absolute; padding:.5rem 1rem; background-color:rgb(142, 99, 152); box-shadow:.3rem .3rem .7rem rgba(0, 0, 0, 0.21);  top:6rem; display:block;"><%=message%></span>
+                    <%}%>
+                    <form class="add-subject-form" action="/addsubject" method="post">
+                        <input type="text" name="subject" placeholder="Nombre de la materia" value="">
+                        <button>Agregar Materia</button>
+                    </form>
+                    <div class="subject-list">
+                        <%if(subjects.length > 0){%>
+                            <ul>
+                                <%subjects.map(i=>{%>
+                                    <li><%=i.Name%></li>
+                                <%})%>
+                            </ul>
+                        <%}else{%>
+                            <span style="font-size:2rem; width:100%;
+                            padding:.5rem 1rem;">No hay materrias que mostrar</span>
+                        <%}%>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+        <%-include('./partials/_bgEffect')-%>
+
+<%-include('./partials/_footer')-%>

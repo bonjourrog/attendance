@@ -1,0 +1,97 @@
+<%-include('./partials/_header')-%>
+
+        <main class="container">
+            <%-include('./partials/_sidebar')-%>
+            <section class="content">
+                <header class=header>
+                    <a href="/"><img src="/icons/time-management.svg" alt="App icons"></a>
+                    <span>Control De Incidencias - <%=title%></span>
+                </header>
+
+                <article id="teacher-content" class="teacher-content">
+
+
+
+                    <div class="teachers">
+                        <%if(message.length > 0){%>
+                            <span id="message" style="position:absolute; color:rgb(232, 232, 232); background-color:rgba(88, 73, 87, 1); box-shadow:.2rem .2rem .5rem rgba(1, 1, 1, 0.6); font-size:1rem; text-align:center width:5rem; padding:.7rem .6rem; z-index:4; left:calc(50% - 5rem); top:8rem;"><%=message%></span>
+                        <%}%>
+
+                        <!--Edit tacher form-->
+                            <form id="edit-teacher-form" class="add-teacher-form" action="/editteacher" method="post">
+                                <label id="close-edit-teacher-form" style="position:absolute; right:.3rem; top:.3rem; border-radius:5rem; cursor:pointer;">X</label>
+                                <label>Editar Maestro</label>
+                                <input autocomplete="false" id="name" type="text" name="name" placeholder="Nombre Completo">
+                                <input autocomplete="off" id="field" type="text" name="field" placeholder="Carrera">
+                                <button id="set-id-teacher" value="">Editar Maestro</button>
+                            </form>
+                        <!--Edit tacher form-->
+
+                        <!--Add tacher form-->
+                            <form id="add-teacher-form" class="add-teacher-form" action="/addteacher" method="post">
+                                <label id="close-add-teacher-form" style="position:absolute; right:.3rem; top:.3rem; border-radius:5rem; cursor:pointer;">X</label>
+                                <label>Agregar maestro</label>
+                                <input autocomplete="off" type="text" name="name" placeholder="Nombre Completo">
+                                <input autocomplete="off" type="text" name="field" placeholder="Carrera">
+                                <button>Agregar</button>
+                            </form>
+                        <!--Add tacher form-->
+
+
+                        <%if(teacherArr.length > 0){%>
+                            <!-- assign subject form -->
+                            <form id="subjectForm" action="/assignSubject/0" method="post">
+                                <span id="closePopUp" style="position:absolute; top:.4rem; right:.6rem; border-radius:.5rem; cursor:pointer; padding:.1rem .1rem;">X</span>
+                                <select id="subject" name="subject">
+                                    <option class="opc" value="">Materias</option>
+                                    <%subjects.map(i=>{%>
+                                        <option class="opc" value=<%=i.subject_ID%>>
+                                            <%=i.Name%>
+                                        </option>
+                                    <%})%>
+                                </select>
+                                <button>Asignar</button>
+                                </form>
+                                <!-- assign subject form -->
+
+
+                            <!-- Button add teacher -->
+                            <span id="add-teacher">Agregar Maestro</span>
+                            <!-- Button add teacher -->
+
+                            <table id="table">
+                                <thead>
+                                    <tr>
+                                        <th>Maestro</th>
+                                        <th>Campo</th>
+                                        <th>Materia</th>
+                                        <th>Editar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%teacherArr.map(i=>{%>
+                                        <tr>
+                                            <td><%=i.Name%></td>
+                                            <td><%=i.Field%></td>
+                                            <%if(i.subjectName){%>
+                                                <td><%=i.subjectName%></td>
+                                            <%}else{%>
+                                                <td class="withoutSubject" value="<%=i.ID%>" style="color:rgba(244, 99, 99, 0.87);">Sin materia</td>
+                                            <%}%>
+                                            <td><span data-name="<%=i.Name%>" data-field="<%=i.Field%>" data-id="<%=i.ID%>" class="edit-teacher">Editar</span></td>
+                                        </tr>
+                                    <%})%>
+                                </tbody>
+                            </table>
+                        <%}else{%>
+                            <span style="background:rgb(12, 235, 184); padding:1rem 2rem; text-align:center;">No hay maestros</span>
+                        <%}%>
+                    </div>
+
+                </article>
+
+            </section>
+        </main>
+        <%-include('./partials/_bgEffect')-%>
+
+<%-include('./partials/_footer')-%>

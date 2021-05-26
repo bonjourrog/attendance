@@ -1,0 +1,875 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+:root{
+    --white:rgb(233, 233, 233);
+    --black:rgba(19, 19, 31, 1);
+    --purple: rgb(212, 87, 214);
+    --bg-white: rgba(255, 255, 255, 0.67);
+    --montserrat:'Montserrat', sans-serif;
+    --shadow-sm: 1rem 1rem 3rem rgba(17, 17, 29, 0.46);
+}
+
+body{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    overflow: hidden;
+    background: rgb(217,60,255);
+    background: radial-gradient(circle, rgba(217,60,255,1) 0%, rgba(191,107,254,1) 51%, rgba(244,203,255,1) 100%);
+    font-family: var(--montserrat);
+}
+
+.info-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.info-content > h2{
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+.info-content > span{
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+}
+
+
+/* NOTE: Main Window */
+
+.container{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 90%;
+    max-height: 90%;
+    background-color: var(--bg-white);
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+/* NOTE: Sidebar */
+
+.sidebar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 7rem;
+    height: 100%;
+    background-color: var(--bg-white);
+    box-shadow: 0rem 1rem 2.4rem rgba(7, 9, 7, 0.49);
+}
+
+
+/* NOTE: PopUp */
+
+.popup{
+    position: absolute;
+    top:-2rem;
+    display: none;
+    width: auto;
+    background-color: rgba(153, 83, 162, 0.79);
+    box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.65);
+    color:rgb(232, 232, 232);
+    font-size: .7rem;
+    padding: .3rem .6rem;
+    border-radius: 1rem;
+    text-align: center;
+    z-index: 9;
+}
+
+.sidebar a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 2rem;
+    transition: all .3s ease;
+}
+
+.sidebar a:hover{
+    transform: scale(1.2);
+}
+
+.sidebar a img{
+    width: 100%;
+}
+
+/* NOTE: Main Content */
+.content{
+    position: relative;
+    width: calc(100% - 7rem);
+    height: 100%;
+    max-height: 100%;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height: 5rem;
+    background-color: var(--bg-white);
+}
+
+.header a img{
+    width:2rem;
+    margin-left: 3rem;
+}
+
+.header span{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--black);
+}
+
+/* NOTE:  Square Background Effect */
+
+.square{
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background-color: transparent;
+    box-shadow: 0rem 0rem 2rem rgba(255, 255, 255, 0.59);
+    z-index: -1;
+}
+
+.square:nth-child(2){
+    top:2rem;
+    left:1em;
+    border-radius: .3rem;
+    animation-name: square_1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_1 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-5rem) rotate(90deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+.square:nth-child(3){
+    top:40rem;
+    left:1em;
+    border-radius: .3rem;
+    animation-name: square_2;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_2 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-5rem) rotate(98deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+.square:nth-child(4){
+    width: 5rem;
+    height: 5rem;
+    top:35rem;
+    left:1em;
+    border-radius: .3rem;
+    animation-name: square_2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_2 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-5rem) rotate(-90deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+.square:nth-child(5){
+    width: 17rem;
+    height: 17rem;
+    top:20rem;
+    left:60em;
+    border-radius: .3rem;
+    animation-name: square_3;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_3 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-10rem) rotate(-20deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+.square:nth-child(6){
+    width: 5rem;
+    height: 5rem;
+    top:5rem;
+    left:70rem;
+    border-radius: .3rem;
+    animation-name: square_2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_2 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-5rem) rotate(-90deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+.square:nth-child(7){
+    width: 5rem;
+    height: 5rem;
+    top:1rem;
+    left:80rem;
+    border-radius: .3rem;
+    animation-name: square_4;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes square_4 {
+    0%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(5rem) rotate(-60deg);
+    }
+
+    100%{
+        transform: translateY(0rem) rotate(0deg);
+    }
+
+}
+
+
+/* NOTE: Login */
+
+.login{
+    display: flex;
+    width: 80%;
+    height: 90%;
+    background-color:var(--bg-white);
+    border-radius: .3rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.background-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 30rem;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.background-img img{
+    position: absolute;
+    width: auto;
+    height: 100%;
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+.login-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 30rem);
+    height: 100%;
+}
+
+.login-cont > form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    height: 90%;
+    box-shadow: var(--shadow-sm);
+}
+
+.login-cont > form label{
+    display: block;
+    width:80%;
+    font-size: 2rem;
+    font-weight: normal;
+    color:var(--black);
+    padding: 1rem 0;
+    margin-bottom: 6rem;
+}
+
+.login-cont > form > input{
+    display: block;
+    width: 70%;
+    font-size: 1.2rem;
+    font-family: var(--montserrat);
+    padding: .5rem .5rem;
+    outline: none;
+    border:.1rem solid rgba(105, 122, 134, 0.27);
+    box-shadow: 1rem 1rem 1rem rgba(29, 23, 37, 0.2);
+    margin-top: 2rem;
+    border-radius: 5rem;
+    transition: all .3s ease;
+}
+
+.login-cont > form > input:focus{
+    box-shadow: 1rem 1rem 1rem rgba(29, 23, 37, 0.44);
+    trans> form: translateY(-1rem);
+}
+
+.login-cont > form > button{
+    padding: .6rem 3rem;
+    margin-top: 5rem;
+    outline: none;
+    font-size: 1rem;
+    border: .1rem solid var(--purple);
+    color: var(--purple);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.login-cont > form button:hover{
+    color: var(--white);
+    background-color: var(--purple);
+    transform: translateY(-1rem);
+    box-shadow: 1rem 1rem 1rem rgba(24, 14, 21, 0.49);
+}
+
+
+/* NOTE: Report */
+/* NOTE: Report */
+/* NOTE: Report */
+/* NOTE: Report */
+
+.report-content{
+    width: 90%;
+    height: 100%;
+    max-height: 100%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-content{
+    width: 40%;
+    height: 80%;
+}
+
+.form-content > form{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.form-content > form > label{
+    display: block;
+    width: 100%;
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+    background-color: rgba(183, 75, 255, 0.137);
+    text-align: center;
+}
+
+.form-content > form > textarea{
+    display: block;
+    width: 90%;
+    height: 10rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 1rem 1rem;
+    background-color: rgba(252, 53, 252, 0);
+    box-shadow: .5rem .5rem 2.4rem rgba(0, 0, 0, 0.24);
+    border:none;
+    outline: none;
+    resize: none;
+    font-size: 1rem;
+    font-family: var(--montserrat);
+    letter-spacing: .08rem;
+}
+
+.form-content > form > textarea::-webkit-scrollbar{
+    width: .6rem;
+}
+
+.form-content > form > textarea::-webkit-scrollbar-track{
+    background:rgba(224, 124, 254, 0.32);
+}
+
+.form-content > form > textarea::-webkit-scrollbar-thumb{
+    background-color: rgb(224, 124, 254);
+    border-radius: 2rem;
+    border:.1rem solid rgba(224, 124, 254, 0.8);
+}
+
+
+.form-content > form > button{
+    display: block;
+    padding: .5rem 2rem;
+    margin:0 auto;
+    color: rgb(178, 35, 190);
+    border:.1rem solid rgb(178, 35, 190);
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.form-content > form > button:hover{
+    color: rgb(216, 216, 216);
+    background-color: rgb(178, 35, 190);
+}
+
+.teacher-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 70%;
+    margin-bottom: 5rem;
+    overflow: auto;
+    overflow-x: hidden;
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.164);
+}
+
+.teacher-list::-webkit-scrollbar{
+    width: .6rem;
+}
+
+.teacher-list::-webkit-scrollbar-track{
+    background:rgba(224, 124, 254, 0.32);
+}
+
+.teacher-list::-webkit-scrollbar-thumb{
+    background-color: rgb(224, 124, 254);
+    border-radius: 2rem;
+    border:.1rem solid rgba(224, 124, 254, 0.8);
+}
+
+.teacher-cont{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    padding: 1rem .3rem;
+    margin: .5rem 0;
+    background-color: rgba(168, 17, 255, 0.192);
+    color:black;
+    transition: all .3s ease;
+}
+
+.teacher-cont:hover{
+    box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, 0.199);
+}
+
+.teacher-cont span, p{
+    font-weight: normal;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+#app{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:30rem;
+}
+
+.chart-content{
+    display:flex;
+    justify-content:center;
+    max-height:100%;
+    width:100%;
+    max-width:100%;
+    margin-bottom:6rem;
+}
+
+
+.chart{
+    padding:0rem 5rem;
+}
+
+/* NOTE: Teacher  */
+.teacher-content{
+    width: 100%;
+    height: calc(100% - 5rem);
+}
+
+ .add-teacher-form{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    height: 60%;
+    background-color: rgba(250, 247, 247, 0.95);
+    box-shadow: .3rem .3rem 1rem rgba(3, 3, 3, 0.38);
+    z-index: 9;
+}
+
+.add-teacher-form > label{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.add-teacher-form > input{
+    display: block;
+    width: 70%;
+    margin: 1rem 0rem;
+    padding: 1rem .4rem;
+    outline: none;
+    border:none;
+    box-shadow: .2rem .2rem .6rem rgba(14, 14, 14, 0.24);
+
+}
+
+.add-teacher-form > input:nth-child(2){
+    margin-top:3rem;
+}
+
+.add-teacher-form > input:focus{
+    box-shadow: .3rem .3rem .8rem rgba(8, 9, 8, 0.38);
+}
+
+.add-teacher-form > button{
+    margin-top: 1rem;
+    padding: .5rem 1.3rem;
+    outline: none;
+    background: transparent;
+    cursor:pointer;
+    border:.1rem solid rgba(109, 30, 119, 0.75);
+    color:rgba(109, 30, 119, 0.75);
+}
+
+.add-teacher-form > button:hover{
+    background-color: rgba(109, 30, 119, 0.75);
+    color:var(--white);
+    box-shadow: .3rem .3rem .7rem rgba(6, 6, 6, 0.22);
+}
+
+
+.teachers{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    margin:0 auto;
+}
+
+.teachers > #add-teacher{
+    display: block;
+    padding: .5rem .8rem;
+    margin-bottom: 1rem;
+    border:.1rem solid rgb(75, 75, 75);
+    border-radius: .3rem;
+    cursor:pointer;
+}
+
+.teachers > #add-teacher:hover{
+    background-color: rgb(68, 68, 68);
+    color:rgb(236, 236, 236);
+}
+
+.teachers > table{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: .4rem;
+    box-shadow: .6rem .6rem .7rem rgba(0, 0, 0, 0.29);
+    overflow-y: auto;
+}
+
+/* NOTE: Styling the table's scrollbar */
+.teachers > table::-webkit-scrollbar{
+    width: .7rem;
+    background-color: rgba(187, 0, 210, 0.17);
+}
+
+.teachers > table::-webkit-scrollbar-track{
+    width: 100%;
+    background-color: rgba(105, 22, 91, 0.15);
+}
+
+.teachers > table::-webkit-scrollbar-thumb{
+    width: 100%;
+    border-radius: 1rem;
+    background-color: rgba(37, 9, 34, 0.38);
+}
+
+.teachers > table > thead{
+    display: block;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.87);
+    color: var(--white);
+}
+
+.teachers > table > thead > tr{
+    display: flex;
+    width: 100%;
+}
+
+.teachers > table > thead > tr > th{
+    display: inline-block;
+    width: 25%;
+    padding: .8rem .7rem;
+    text-align: left;
+}
+
+.teachers > table > tbody{
+    display: block;
+    width: 100%;
+}
+
+.teachers > table > tbody > tr{
+    display: flex;
+    width: 100%;
+    padding: .6rem 0;
+}
+
+.teachers > table > tbody > tr:nth-child(even){
+    background-color: rgba(92, 92, 92, 0.39);
+}
+
+.teachers > table > tbody > tr > td{
+    display: block;
+    width: 25%;
+    padding-left: .3rem;
+    cursor: pointer;
+}
+
+/* .teachers > table > tbody > tr > td > a{
+    display:block;
+    width:100%;
+    text-align:center;
+} */
+
+.teachers > table > tbody > tr:hover{
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.64);
+}
+
+/* NOTE: Form to assign subject */
+#subjectForm{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    height: 10rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: .3rem .3rem .7rem rgba(0, 0, 0, 0.27);
+    z-index: 9;
+}
+
+#subjectForm > select{
+    display: block;
+    padding: .3rem 1rem;
+    outline-color: rgba(208, 219, 72, 0.69);
+}
+
+#subjectForm > button{
+    display: block;
+    margin-top: 2rem;
+    padding: .3rem 1rem;
+    outline: none;
+    border:.1rem solid rgba(10, 10, 9, 0.28);
+    border-radius: .3rem;
+    background: transparent;
+    color:rgba(9, 9, 9, 0.83);
+    cursor: pointer;
+}
+
+#subjectForm > button:hover{
+    color:rgb(233, 235, 234);
+    background-color: rgb(64, 64, 64);
+}
+
+
+/* NOTE: Edit teacher button */
+
+.edit-teacher{
+    padding: .2rem 1rem;
+    border:.1rem solid rgba(36, 36, 36, 0.85);
+}
+
+.edit-teacher:hover{
+    background-color: rgba(36, 36, 36, 0.85);
+}
+
+/* NOTE: template edit teacher */
+#template{
+    border:.1rem solid red;
+}
+
+
+/* NOTE: Subject styles */
+
+.subject-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.add-subject-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    height: 60%;
+    box-shadow: .3rem .3rem 1rem rgba(1, 1, 1, 0.31);
+}
+
+.add-subject-form > input{
+    padding: .5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: .2rem .2rem .5rem rgba(6, 6, 6, 0.2);
+    border:none;
+    outline: none;
+}
+
+.add-subject-form > button{
+    border:.1rem solid rgb(27, 27, 27);
+    color: rgb(27, 27, 27);
+    padding: .4rem 1rem;
+    border-radius: .3rem;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.add-subject-form > button:hover{
+    color: rgb(238, 238, 238);
+    background-color: rgb(33, 33, 33);
+}
+
+.add-subject-form > input:focus{
+    box-shadow: .2rem .2rem .7rem rgba(6, 6, 6, 0.34);
+}
+
+
+.subject-list{
+    width: 20rem;
+    height: 70%;
+    overflow-y: auto;
+    box-shadow: .3rem .3rem 1rem rgba(10, 10, 10, 0.2);
+}
+
+.subject-list::-webkit-scrollbar{
+    width: .7rem;
+}
+
+.subject-list::-webkit-scrollbar-track{
+    background-color: rgb(231, 195, 235);
+}
+
+.subject-list::-webkit-scrollbar-thumb{
+    width: .7rem;
+    background-color: rgb(108, 71, 116);
+    border-radius: 5rem;
+}
+
+.subject-list > ul{
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+
+.subject-list > ul > li{
+    width: 100%;
+    text-align: center;
+    padding: .5rem .2rem;
+    cursor: pointer;
+}
+
+.subject-list > ul > li:nth-child(odd){
+    background-color: rgba(162, 125, 164, 0.22);
+}
+
+.subject-list > ul > li:hover{
+    background-color: rgba(96, 63, 94, 0.49);
+}

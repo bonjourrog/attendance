@@ -1,0 +1,48 @@
+<%-include('./partials/_header')-%>
+
+        <main class="container">
+            <%-include('./partials/_sidebar')-%>
+            <section class="content">
+                <header class=header>
+                    <a href="/"><img src="/icons/time-management.svg" alt="App icons"></a>
+                    <span>Control De Incidencias - <%=title%></span>
+                </header>
+
+                <article class="report-content">
+
+                    <%if(message.length>0){%>
+                        <span style="position: absolute; width: 100%; left:0rem; top:5rem; padding: 1rem 0; text-align: center; background-color: rgba(55, 226, 84, 0.603);"><%=message%></span>
+                    <%}%>
+
+                    <div class="form-content">
+                        <form id="form" name="reportTeacher" action="/report/noID" method="POST">
+                            <label id="teacher-selected" for="">Maestro</label>
+                            <textarea id="textReport" name="textReport" placeholder="Agrege el reporte aquí."></textarea>
+                            <button>Hacer reporte</button>
+                        </form>
+                    </div>
+
+                    <div class="teacher-list">
+
+                        <%if(teachers.length){%>
+                            
+                            <%teachers.map(teacher => {%>
+                                <div class="teacher-cont">
+                                    <span value="<%=`${teacher.ID}`%>"><%=teacher.Name%></span>
+                                    <p>-</p>
+                                    <p><%=teacher.Field%></p>
+                                    
+                                </div>
+                            <%})%>
+                            
+                        <%}else{%>
+                            <p>No hay maestros registrados</p>
+                        <%}%>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+        <%-include('./partials/_bgEffect')-%>
+
+<%-include('./partials/_footer')-%>

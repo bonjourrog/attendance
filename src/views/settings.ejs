@@ -1,0 +1,25 @@
+<%-include('./partials/_header')-%>
+
+        <main class="container">
+            <%-include('./partials/_sidebar')-%>
+            <section class="content">
+                <header class=header>
+                    <a href="/"><img src="/icons/time-management.svg" alt="App icons"></a>
+                    <span>Control De Incidencias - <%=title%></span>
+                </header>
+
+                <article class="setting-content">
+                    <ul class="setting-options">
+                        <li onclick="teacherScreen()" class="option">Maestros</li>
+                        <li class="option">Materias</li>
+                    </ul>
+                    <div id="option-screen">
+
+                    </div>
+                </article>
+
+            </section>
+        </main>
+        <%-include('./partials/_bgEffect')-%>
+
+<%-include('./partials/_footer')-%>

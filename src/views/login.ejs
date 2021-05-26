@@ -1,0 +1,16 @@
+<%-include('./partials/_header')-%>
+    <div class="login">
+        <div class="background-img">
+            <img src="/images/5214643.jpg" alt="background images">
+        </div>
+        <div class="login-cont">
+            <form action="/auth/login" method="post">
+                <label>Iniciar sesión</label>
+                <input type="text" name="userName" autocomplete="off" placeholder="Usuario">
+                <input type="password" name="password" placeholder="Contraseña">
+                <button>Entrar</button>
+            </form>
+        </div>
+    </div>
+    <%-include('./partials/_bgEffect')-%>
+<%-include('./partials/_footer')-%>
